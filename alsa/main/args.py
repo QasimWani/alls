@@ -55,7 +55,7 @@ def get_args(argstring):
     parser.add_argument('--dirichlet_alpha', type=float, default=0.6)
 
     parser.add_argument('--num_batches', type=int, default=20)
-    parser.add_argument('--sampling_strategy', type=str, default="maxent")
+    parser.add_argument('--sampling_strategy', type=str, default="iwal")
     parser.add_argument('--diversify', type=str, default="none")
     parser.add_argument('--iwal_normalizer', type=float, default=1e-3)
     parser.add_argument('--vs_size', type=int, default=8)
