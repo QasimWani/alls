@@ -13,7 +13,7 @@ def get_args(argstring):
 
     use_cuda = torch.cuda.is_available()
     # assert use_cuda
-    device = 0 if use_cuda else 1
+    device = 1 if use_cuda else 0
     print("Default device", device)
 
     parser = argparse.ArgumentParser()
@@ -33,7 +33,7 @@ def get_args(argstring):
     parser.add_argument('--gamma', type=float, default=0.97)
     parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--infer_batch_size', type=int, default=512)
-    parser.add_argument('--initial_epochs', type=int, default=60)
+    parser.add_argument('--initial_epochs', type=int, default=11)
     parser.add_argument('--partial_epochs', type=int, default=10)
     parser.add_argument('--warm_epochs', type=int, default=1)
 
@@ -71,7 +71,7 @@ def get_args(argstring):
     parser.add_argument('--domainsep', dest='domainsep', action='store_true')
     parser.set_defaults(domainsep=False)
 
-    parser.add_argument('--device', type=int, default=device)
+    parser.add_argument('--device', type=str, default='cpu')
     parser.add_argument('--version', type=int, default=17)
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--name', type=str, default="")

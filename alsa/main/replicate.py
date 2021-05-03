@@ -15,7 +15,7 @@ import csv
 from comet_ml import Experiment, api
 import torch
 import numpy as np
-from alsa.config import comet_ml_key, LONG_MILESTONES
+from alsa.config import comet_ml_key, LONG_MILESTONES, home_dir
 from alsa.adaptation.label_shift import label_shift
 from alsa.adaptation.utils import measure_composition
 from alsa.datasets.datasets import get_datasets
@@ -23,7 +23,6 @@ from alsa.main.args import get_net_cls, get_args
 from alsa.nets.alt_common import train as sep_train
 from alsa.nets.common import evaluate, train
 from alsa.sampling import general_sampling, iwal_bootstrap
-
 
 def save_to_csv(name, d, args, logger):  # pylint: disable=W0613
     """Save replication logs to CSV to upload to comet."""
@@ -33,7 +32,7 @@ def save_to_csv(name, d, args, logger):  # pylint: disable=W0613
     d["Name"] = num_batches * [name]
 
     keys = list(d.keys())
-    fname = 'data/%s.csv' % name
+    fname = home_dir + 'content/data/%s.csv' % name
     with open(fname, 'w') as f:
         w = csv.DictWriter(f, keys)
         w.writeheader()
@@ -73,11 +72,11 @@ def experiment(args, logger, name, seed=None):
 
     # Check for h0
     if args.dataset == "nabirds":
-        fname = "./data/%s_%s_%s_%s_%s.h5" % (args.seed, args.dataset_cap,
+        fname = "content/data/%s_%s_%s_%s_%s.h5" % (args.seed, args.dataset_cap,
                                               args.dataset, args.nabirdstype,
                                               args.version)
     else:
-        fname = "./data/%s_%s_%s_%s_%s_%s.h5" % (
+        fname = "content/data/%s_%s_%s_%s_%s_%s.h5" % (
             args.seed, args.dataset_cap, args.dataset, args.shift_strategy,
             args.warmstart_ratio, args.version)
     if os.path.exists(fname):
@@ -95,7 +94,7 @@ def experiment(args, logger, name, seed=None):
                       dataset=dataset,
                       epochs=args.initial_epochs,
                       args=args)
-        torch.save(network.state_dict(), fname)
+        torch.save(network.state_dict(), home_dir + fname)
     label_shift(network, dataset, args)
 
     # Initialize sampling strategy
