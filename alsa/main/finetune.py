@@ -42,7 +42,7 @@ def experiment():
     if args.log:
         comet_api = api.API(api_key=comet_ml_key)
         exps = comet_api.get_experiments(
-            "ericzhao28",
+            "qasimwani",
             project_name="active-label-shift-adaptation",
             pattern=name)
         for exp in exps:

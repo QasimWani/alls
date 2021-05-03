@@ -53,8 +53,8 @@ def experiment(args, logger, name, seed=None):
     np.random.seed(seed)
     random.seed(seed)
     print("Running seed ", seed)
-    torch.cuda.set_device(args.device)
-    assert torch.cuda.is_available()
+    # torch.cuda.set_device(args.device)
+    # assert torch.cuda.is_available()
     if args.reweight:
         assert args.iterative_iw
 
@@ -191,10 +191,11 @@ def seeded_exp(cmd):
     # Initialize comet.ml
     comet_api = api.API(api_key=comet_ml_key)
     exps = comet_api.get_experiments(
-        "ericzhao28",
-        project_name="active-label-shift-adaptation",
+        "qasimwani",
+        project_name="alls",
         pattern=name)
     for exp in exps:
+        print(exp)
         if exp.get_name() == name:
             raise ValueError("EXP EXISTS!")
 

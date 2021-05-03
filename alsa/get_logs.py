@@ -4,7 +4,7 @@ from config import comet_ml_key
 comet_api = API(api_key=comet_ml_key)
 for key in ["405", "301", "1000"]:
     exps = comet_api.get_experiments(
-        "ericzhao28",
+        "qasimwani",
         project_name="active-label-shift-adaptation",
         pattern=".*" + key + ".*")
     for exp in exps:
@@ -12,7 +12,7 @@ for key in ["405", "301", "1000"]:
             continue
         if key in exp.get_name():
             print(exp.get_name())
-            x = comet_api.get("ericzhao28/active-label-shift-adaptation/" + exp.get_metadata()["experimentKey"])
+            x = comet_api.get("qasimwani/active-label-shift-adaptation/" + exp.get_metadata()["experimentKey"])
             for asset in x.get_asset_list():
                 assetid = asset["assetId"]
                 print(asset["fileName"])

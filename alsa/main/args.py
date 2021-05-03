@@ -12,8 +12,8 @@ def get_args(argstring):
     """Argparse specs"""
 
     use_cuda = torch.cuda.is_available()
-    assert use_cuda
-    device = 0 if use_cuda else "cpu"
+    # assert use_cuda
+    device = 0 if use_cuda else 1
     print("Default device", device)
 
     parser = argparse.ArgumentParser()

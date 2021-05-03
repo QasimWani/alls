@@ -1,6 +1,6 @@
 """Config w/ Comet.ml key"""
 
-comet_ml_key = "WwYuhoUWbTZMhZPAbwIKPVHmC"
+comet_ml_key = "4KwBibfUzMG6KxEYGWad4STAe"
 cifar100_mean = (0.5070751592371323, 0.48654887331495095, 0.4409178433670343)
 cifar100_std = (0.2673342858792401, 0.2564384629170883, 0.27615047132568404)
 nabirds_mean = (0.4914650835697064, 0.5085243837960608, 0.4645163551378643)
@@ -9,5 +9,5 @@ LONG_MILESTONES = [20, 40, 60]
 NABIRDS_MILESTONES = [10, 20, 30]
 SHORT_MILESTONES = [3, 6, 10]
 MID_MILESTONES = [5, 10, 15]
-home_dir = "/"
-# home_dir = "/home/elzhao/"
+# home_dir = "/"
+home_dir = "/Users/qasimwani/Desktop/research/robust_representation/active_learning/alls/"
