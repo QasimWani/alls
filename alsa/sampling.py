@@ -416,7 +416,7 @@ def iwal_bootstrap(network, net_cls, dataset, args=None):
         sample_probs = args.iwal_normalizer + \
             (1 - args.iwal_normalizer) * probs_disagreement
 
-        print("Original sample_probs:", sample_probs)
+        print("Original sample_probs:", sample_probs, len(sample_probs), np.mean(sample_probs), np.var(sample_probs)) #iw = p_t for all training datapoints.
 
         if args.diversify == "none":
             sample_probs = sample_probs

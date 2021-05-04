@@ -71,7 +71,7 @@ def label_shift(network, dataset, args):
         # Optimize eq (6) as convex optm problem
         theta = cp.Variable(args.num_cls)
         b = target_priors - source_priors
-        objective = cp.Minimize(
+        objective = cp.Minimize(#convex optimization
             cp.pnorm(confuse @ theta - b) + args.rlls_reg * cp.pnorm(theta))
         constraints = [-1 <= theta]
         prob = cp.Problem(objective, constraints)

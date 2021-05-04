@@ -189,14 +189,14 @@ def seeded_exp(cmd):
 
     # Initialize comet.ml
     comet_api = api.API(api_key=comet_ml_key)
-    exps = comet_api.get_experiments(
-        "qasimwani",
-        project_name="alls",
-        pattern=name)
-    for exp in exps:
-        print(exp)
-        if exp.get_name() == name:
-            raise ValueError("EXP EXISTS!")
+    # exps = comet_api.get_experiments(
+    #     "qasimwani",
+    #     project_name="active-label-shift-adaptation",
+    #     pattern=name)
+    # for exp in exps:
+    #     print(exp)
+    #     if exp.get_name() == name:
+    #         raise ValueError("EXP EXISTS!")
 
     logger = Experiment(comet_ml_key,
                         project_name="active-label-shift-adaptation")

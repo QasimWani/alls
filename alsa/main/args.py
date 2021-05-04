@@ -37,7 +37,7 @@ def get_args(argstring):
     parser.add_argument('--partial_epochs', type=int, default=10)
     parser.add_argument('--warm_epochs', type=int, default=1)
 
-    parser.add_argument('--shift_correction', type=str, default="none")
+    parser.add_argument('--shift_correction', type=str, default="rlls")
     parser.add_argument('--rlls_reg', type=float, default=1e-3)
     parser.add_argument('--rlls_lambda', type=float, default=1.0)
     parser.add_argument('--no_train_iw', dest='train_iw', action='store_false')
@@ -52,7 +52,7 @@ def get_args(argstring):
                         default="dirichlet_target")
     parser.add_argument('--tweak_label', type=int, default=5)
     parser.add_argument('--tweak_prop', type=float, default=0.7)
-    parser.add_argument('--dirichlet_alpha', type=float, default=0.6)
+    parser.add_argument('--dirichlet_alpha', type=float, default=2)
 
     parser.add_argument('--num_batches', type=int, default=20)
     parser.add_argument('--sampling_strategy', type=str, default="iwal")
